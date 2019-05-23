@@ -2,6 +2,7 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+const camelcaseKeys = require('camelcase-keys');
 
 // Body Parser Middleware
 app.use(bodyParser.json());
@@ -54,7 +55,7 @@ app.get("/api/people", function (req, res) {
         if (err) {
             console.log(err);
         }
-        res.status(200).end(JSON.stringify(recordset.recordset));
+        res.status(200).end(JSON.stringify(camelcaseKeys(recordset.recordset)));
     });
     sql.close();
 });
@@ -74,7 +75,7 @@ app.get("/api/people/:id", function (req, res) {
         if (parseInt(recordset.rowsAffected) == 0) {
             res.status(404).end("No matching person found");
         }
-        res.status(200).end(JSON.stringify(recordset.recordset));
+        res.status(200).end(JSON.stringify(camelcaseKeys(recordset.recordset)));
     });
     sql.close();
 });
