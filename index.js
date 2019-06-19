@@ -75,7 +75,7 @@ app.get("/api/people/:id", function (req, res) {
         if (parseInt(recordset.rowsAffected) == 0) {
             res.status(404).end("No matching person found");
         }
-        res.status(200).end(JSON.stringify(camelcaseKeys(recordset.recordset)));
+        res.status(200).end(JSON.stringify(camelcaseKeys(recordset.recordset[0])));
     });
     sql.close();
 });
