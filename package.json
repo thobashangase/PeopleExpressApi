@@ -11,10 +11,11 @@
     "express",
     "api",
     "sql",
-    "crud"
+    "crud",
+    "node"
   ],
   "author": "Thoba Shangase",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "camelcase-keys": "^5.2.0",
     "express": "^4.16.4",
